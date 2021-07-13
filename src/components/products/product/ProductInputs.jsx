@@ -1,7 +1,14 @@
 import React from 'react'
+import { useEffect } from "react";
 
 const ProductInputs = (props) => {
     let format_price = props.price + "$";
+    useEffect(() => {
+        // get all the size for the product
+        // method to get the siblings
+        // props.siblings_id
+        // .then()
+    }, []);
     console.log(props.quantity);
     return (
         <div>
@@ -12,8 +19,13 @@ const ProductInputs = (props) => {
             <hr />
             <form action="">
                 <label htmlFor="">
-                    {props.quantity}
+                    {props.quantity} produits en stock
                     <input type="text" placeholder="default palceholder"/> {/* input quantity products */}
+                </label>
+                <label htmlFor="">
+                    <select name="" id="">
+                        <option value=""></option>
+                    </select>
                 </label>
                 <label htmlFor="">
                     <input type="text" placeholder="default palceholder"/> {/* input size product */}

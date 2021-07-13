@@ -7,6 +7,7 @@ import ProductInputs from "./product/ProductInputs.jsx";
 let data_artist = {
     id:3213,
     name:"Vinyle Album Name",
+    siblings_id:984032840,
     bands:["stuffed foxed","tft"],
     types:["CD"],
     img_slider:["https://picsum.photos/400/300","https://picsum.photos/200/300","https://picsum.photos/300/300"],
@@ -34,6 +35,7 @@ const Products = () => {
                 type={data_artist.types}
                 quantity={data_artist.quantity}
                 price={data_artist.price}
+                siblings_id={data_artist.siblings_id}
                 title={data_artist.name}
             ></ProductInputs>
         </div>
