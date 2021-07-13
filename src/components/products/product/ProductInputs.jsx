@@ -8,6 +8,40 @@ const ProductInputs = (props) => {
         // method to get the siblings
         // props.siblings_id
         // .then()
+        const all_size = [
+            {
+                id:3213,
+                name:"Vinyle Album Name",
+                siblings_id:984032840,
+                bands:["stuffed foxed","tft"],
+                types:["CD"],
+                img_slider:["https://picsum.photos/400/300","https://picsum.photos/200/300","https://picsum.photos/300/300"],
+                iframe:"1477673004",
+                description:"lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
+                price:20.2,
+                colors:["red"],
+                quantity:40,
+                visible:false, // Boolean
+                disponibility:["23-70-2021","23-70-2021","10:10","12:10"],   
+                size:"M", // t-shirt ...
+                },
+                {
+                    id:3213,
+                    name:"Vinyle Album Name",
+                    siblings_id:984032840,
+                    bands:["stuffed foxed","tft"],
+                    types:["VINYLE"],
+                    img_slider:["https://picsum.photos/400/300","https://picsum.photos/200/300","https://picsum.photos/300/300"],
+                    iframe:"1477673004",
+                    description:"lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
+                    price:20.2,
+                    colors:["red"],
+                    quantity:40,
+                    visible:false, // Boolean
+                    disponibility:["23-70-2021","23-70-2021","10:10","12:10"],   
+                    size:"S", // t-shirt ...
+                }
+        ]
     }, []);
     console.log(props.quantity);
     return (
@@ -25,6 +59,9 @@ const ProductInputs = (props) => {
                 <label htmlFor="">
                     <select name="" id="">
                         <option value=""></option>
+                        {
+
+                        }
                     </select>
                 </label>
                 <label htmlFor="">
