@@ -33,6 +33,7 @@ const Products = () => {
             <ProductDescription description={data_artist.description}></ProductDescription>
             <ProductInputs
                 type={data_artist.types}
+                _id={data_artist.id}
                 quantity={data_artist.quantity}
                 price={data_artist.price}
                 siblings_id={data_artist.siblings_id}

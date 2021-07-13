@@ -1,14 +1,19 @@
+import Cookies from 'js-cookie';
 import React from 'react'
 import { useEffect } from "react";
+
+
+    
 
 const ProductInputs = (props) => {
     let format_price = props.price + "$";
     useEffect(() => {
-        // get all the size for the product
-        // method to get the siblings
-        // props.siblings_id
-        // .then()
-        const all_size = [
+        generateOptions();// create options 
+        filter();//set rules for inputs
+    }, []);
+    // Generate options for every siblings from the bdd
+    function generateOptions() {
+        return [
             {
                 id:3213,
                 name:"Vinyle Album Name",
@@ -41,9 +46,40 @@ const ProductInputs = (props) => {
                     disponibility:["23-70-2021","23-70-2021","10:10","12:10"],   
                     size:"S", // t-shirt ...
                 }
-        ]
-    }, []);
-    console.log(props.quantity);
+        ].forEach(e=>{
+            const opt = document.createElement('option');
+            opt.value = e.size;
+            opt.textContent = e.size;
+            document.querySelector("#selection_opt").appendChild(opt)
+        })
+        // add to cart
+        function initialiseCart() {
+            document.querySelector("#form_inputs_product").addEventListener("submit",e=>{
+                e.preventDefault();
+                const quantity = e.target["input_quantity"].value;
+                // e.target["selection_opt"].value;
+                let i = Cookies.getJSON("cart");
+                if (i) {
+                    let list = JSON.parse(i.articles);
+                } else {      
+                    Cookies.set("cart",{articles:JSON.stringify([{id:props._id,quantity:40}])})
+                }
+            })
+        }
+    }
+    // Set the rules for the inputs
+    function filter() {
+        let value = 1;
+        const q = document.querySelector(".input_quantity");
+        q.addEventListener("input",()=>{
+            q.value = parseInt(q.value);
+            if (q.value > props.quantity || q.value < 0) { // if the value is beetween 1 and the nb quantity of articles
+                q.value = value;
+            }else{ 
+                value = q.value; // reset the value to the last good value
+            }
+        })
+    }
     return (
         <div>
             <h1>{props.title}</h1> {/* prduct type ex : STUFFED FOXES */}
@@ -51,23 +87,16 @@ const ProductInputs = (props) => {
             <h2>{props.type}</h2> {/* prduct type ex : T-Shirt */}
             <p>{format_price}</p> {/* product price : 20$ */}
             <hr />
-            <form action="">
+            <form action="" id="form_inputs_product">
                 <label htmlFor="">
-                    {props.quantity} produits en stock
-                    <input type="text" placeholder="default palceholder"/> {/* input quantity products */}
+                    {props?.quantity} produits en stock
+                    <input type="number" value="1" max={props.quantity} min="0" name="input_quantity" className="input_quantity" placeholder="default palceholder"/> {/* input quantity products */}
                 </label>
                 <label htmlFor="">
-                    <select name="" id="">
-                        <option value=""></option>
-                        {
-
-                        }
+                    <select name="" id="selection_opt" name="selection_opt">
                     </select>
                 </label>
-                <label htmlFor="">
-                    <input type="text" placeholder="default palceholder"/> {/* input size product */}
-                </label>
-                <button type="button">ajouter au panier</button>
+                <button type="submit">ajouter au panier</button>
             </form>
         </div>
     )
