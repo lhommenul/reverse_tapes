@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect} from 'react'
 import { Slider } from "../../../../node_modules/@lhommenul/slider/slider";
-import "./product.css";
+import "./css/product.css";
 
 let data_cd = {
     id:3213,
