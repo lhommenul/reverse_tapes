@@ -1,11 +1,13 @@
 // import logo from './logo.svg';
 import './App.css';
-import Products from "./components/products/Products";
+import Boutique from "./views/Boutique";
 
 let App = ()=> {
   return (
     <div className="App">
-      <Products></Products>
+      <Boutique>
+        
+      </Boutique>
     </div>
   );
 }

@@ -30,8 +30,10 @@ const product = new mongoose.Schema(
     picture: { type: Array, default: [] },
     // date
     date: { type: Date, default: new Date() },
+    // iframe for bandcamp
+    iframe:{type:String}
   },
   { collection: "product" }
 );
 
-module.exports = mongoose.model("Product", product);
+module.exports = mongoose.model("Prod", product);
