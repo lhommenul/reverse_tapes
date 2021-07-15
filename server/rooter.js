@@ -103,7 +103,17 @@ router.route('/range')
     }
   })
   .put(function (req, res) {
-    res.send('Update a range')
+    try {
+      Range.findOneAndUpdate({_id:req?.body?.id},JSON.parse(req?.body?.package),(err,doc)=>{
+        if (err) {
+          res.sendStatus(404)
+        } else {
+          res.send(doc)
+        }
+      })
+    } catch (error) {
+      res.sendStatus(404)
+    }
   })
   .delete(function (req, res) {
     res.send('Delete a range')

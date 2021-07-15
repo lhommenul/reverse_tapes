@@ -19,6 +19,7 @@ const Boutique = () => {
             {/* TITLE */}
             {/* CONTENT */}
             {
+                // Get the range's and llop throw all of them then append to the doc 
                 list_element.map(prop=>{
                     return <Range data={prop} key={prop._id}></Range>
                 })
