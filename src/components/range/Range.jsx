@@ -2,6 +2,7 @@ import {React} from 'react';
 import axios from 'axios';
 
 const Range = (props) => {
+    console.log(props.data);
     return (
         <article>   
             <img className="range_picture" src="https://picsum.photos/300/300" alt="image du produit range" />
