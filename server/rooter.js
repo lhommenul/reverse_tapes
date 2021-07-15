@@ -116,7 +116,17 @@ router.route('/range')
     }
   })
   .delete(function (req, res) {
-    res.send('Delete a range')
+    try {
+      Range.findOneAndDelete({_id:req?.body?.id},(err,doc,res)=>{
+        if (err) {
+          res.sendStatus(404)
+        } else {
+          res.send(doc,res)
+        }
+      })
+    } catch (error) {
+      res.sendStatus(404)
+    }
   })
 
 module.exports = router;
