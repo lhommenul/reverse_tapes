@@ -3,6 +3,7 @@ let router = express.Router()
 // ========= SCHEMA =========
 const Range = require('./schema/Range');
 const Product = require('./schema/Product');
+const { response } = require('express');
 
 // ====== PRODUCT ========
 router.route('/product')
@@ -47,10 +48,39 @@ router.route('/product')
   .put(function (req, res) {
     res.send('Update a product')
   })
+  .delete(function (req, res) {
+    res.send('Delete a product')
+  })
 // ====== RANGE ========
 router.route('/range')
   .get(function (req, res) {
-    res.send('Get a range')
+    let limit = req?.query?.limit;
+    let id = req?.query?.id;
+    if(id){
+      try {
+        Range.findOne({_id:id},(err,doc)=>{
+          if (err) {
+            res.sendStatus(404)
+          } else {
+            res.send(doc)
+          }
+        })
+      } catch (error) {
+        res.sendStatus(404)
+      }
+    }else{
+      try {
+        Range.find((err,docs)=>{
+          if (err) {
+            res.sendStatus(404)
+          } else {
+            res.send(docs)
+          }
+        }).limit(limit)
+      } catch (error) {
+        res.sendStatus(404)
+      }
+    }
   })
   .post(function (req, res) {
     try {
@@ -74,6 +104,9 @@ router.route('/range')
   })
   .put(function (req, res) {
     res.send('Update a range')
+  })
+  .delete(function (req, res) {
+    res.send('Delete a range')
   })
 
 module.exports = router;

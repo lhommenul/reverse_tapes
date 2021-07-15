@@ -1,10 +1,29 @@
 require('dotenv').config()
 const express = require('express');
 const app = express();
+const cors = require('cors');
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }));
+
+// ===== CONFIG CORS ======
+let params = ()=>{
+  console.log(process.env.STATE);
+  if (process.env.STATE === "dev") {
+    return {
+      origin: '*',
+      optionsSuccessStatus: 200
+    }
+  } else {
+    return {
+      origin: 'http://localhost',
+      optionsSuccessStatus: 200
+    }
+  }
+}
+app.use(cors(params()))
+
 const mongoose = require('mongoose');
 // ROOTER
 const rooter = require('./rooter');

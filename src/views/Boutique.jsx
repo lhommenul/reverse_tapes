@@ -5,8 +5,8 @@ import {getRangeProduct} from '../components/requests/req'
 
 const Boutique = () => {
     useEffect(() => {
-        getRangeProduct().then(data=>{
-            console.log(data);
+        getRangeProduct().then(response=>{
+            console.log(response.data);
         })
         .catch(error=>{
             console.error(error);
