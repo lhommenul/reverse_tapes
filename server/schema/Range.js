@@ -11,7 +11,7 @@ const range = new mongoose.Schema(
     // large description for the product
     description: { type: String },
     // picture for the range
-    picture: { type: Array, default: [] },
+    pictures: { type: Array, default: [] },
     // date of the creation of the range
     date: { type: Date, default: new Date() },
   },

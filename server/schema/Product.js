@@ -27,7 +27,7 @@ const product = new mongoose.Schema(
     // description
     description: { type: String },
     // picture
-    picture: { type: Array, default: [] },
+    pictures: { type: Array, default: [] },
     // date
     date: { type: Date, default: new Date() },
     // iframe for bandcamp

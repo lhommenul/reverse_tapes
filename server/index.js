@@ -1,12 +1,14 @@
 require('dotenv').config()
 const express = require('express');
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
 const mongoose = require('mongoose');
 // ROOTER
-const rooter = require('./rooter')
-app.use('/',rooter)
-const Range = require('./schema/Range');
-const Product = require('./schema/Product');
+const rooter = require('./rooter');
+app.use('/',rooter);
 
 
 // Connection to the bdd
