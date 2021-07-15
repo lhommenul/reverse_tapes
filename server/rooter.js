@@ -3,7 +3,6 @@ let router = express.Router()
 // ========= SCHEMA =========
 const Range = require('./schema/Range');
 const Product = require('./schema/Product');
-const { response } = require('express');
 
 // ====== PRODUCT ========
 router.route('/product')
