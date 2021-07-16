@@ -1,4 +1,6 @@
 .list_range{
     display: grid;
-    grid-template-columns: repeat(3,auto);
+    grid-template-columns: repeat(3,18.75em);
+    justify-content: center;
+    column-gap: 1em;
 }

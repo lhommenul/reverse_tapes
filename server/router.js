@@ -7,15 +7,24 @@ const Product = require('./schema/Product');
 // ====== PRODUCT ========
 router.route('/product')
   .get(function (req, res) {
-    console.log(req?.query?.id);
     try {
-      Product.findOne({_id:req?.query?.id},(err,doc)=>{
-        if (err) {
-          res.sendStatus(404)     
-        } else {
-          res.send(doc)
-        }
-      })
+      if (req?.query?.id) {
+        Product.findOne({_id:req?.query?.id},(err,doc)=>{
+          if (err) {
+            res.sendStatus(404)     
+          } else {
+            res.send(doc)
+          }
+        })
+      } else {
+        Product.find((err,docs)=>{
+          if (err) {
+            res.sendStatus(404)     
+          } else {
+            res.send(docs)
+          }
+        })
+      }
     } catch (error) {
       res.sendStatus(404) 
     }

@@ -14,7 +14,20 @@ let getRangeProduct = ()=> {
     }
 }
 
+let getProducts = ()=> {
+    // Get the data from the bdd
+    try {
+        return axios({
+            method:"GET",
+            url:"http://localhost:8080/product"
+        })
+    } catch (error) {
+        return error;
+    }
+}
+
 
 export {
-    getRangeProduct
+    getRangeProduct,
+    getProducts
 }

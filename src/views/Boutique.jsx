@@ -1,7 +1,7 @@
 import {React, useEffect,useState} from 'react'
-import Range from '../components/range/Range.jsx'
+import Card from '../components/card/Card.jsx'
 import Header from '../components/header/Header.jsx'
-import {getRangeProduct} from '../components/requests/req'
+import {getProducts} from '../components/requests/req'
 import "./css/boutique.css"
 
 
@@ -9,7 +9,7 @@ const Boutique = () => {
     let [list_element, setstate] = useState([]);
     useEffect(() => {
         console.log(process.env);
-        getRangeProduct().then(response=>{
+        getProducts().then(response=>{
             setstate(list_element = response.data)
         })
         .catch(error=> {
@@ -26,7 +26,7 @@ const Boutique = () => {
                 {
                     // Get the range's and loop throw all of them then append to the doc 
                     list_element.map(prop=>{
-                        return <Range data={prop} key={prop._id}></Range>
+                        return <Card data={prop} key={prop._id}></Card>
                     })
                 }
             </ul>
