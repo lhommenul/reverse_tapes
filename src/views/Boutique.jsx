@@ -4,13 +4,15 @@ import Header from '../components/header/Header.jsx'
 import {getRangeProduct} from '../components/requests/req'
 import "./css/boutique.css"
 
+
 const Boutique = () => {
     let [list_element, setstate] = useState([]);
     useEffect(() => {
+        console.log(process.env);
         getRangeProduct().then(response=>{
             setstate(list_element = response.data)
         })
-        .catch(error=>{
+        .catch(error=> {
             console.error(error);
         })
     }, []);

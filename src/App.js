@@ -7,7 +7,6 @@ let App = ()=> {
   return (
     <div className="App">
       <Boutique>
-        
       </Boutique>
     </div>
 
