@@ -1,0 +1,12 @@
+.header_nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+    .list_link_nav{
+        display: flex;
+        flex-direction: row;
+    }
+        .link_nav{
+            margin:0.5em;
+        }

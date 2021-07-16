@@ -1,7 +1,8 @@
 import {React, useEffect,useState} from 'react'
 import Range from '../components/range/Range.jsx'
+import Header from '../components/header/Header.jsx'
 import {getRangeProduct} from '../components/requests/req'
-
+import "./css/boutique.css"
 
 const Boutique = () => {
     let [list_element, setstate] = useState([]);
@@ -16,14 +17,17 @@ const Boutique = () => {
     return (
         <div>
             {/* HEADER */}
+            <Header></Header>
             {/* TITLE */}
             {/* CONTENT */}
-            {
-                // Get the range's and llop throw all of them then append to the doc 
-                list_element.map(prop=>{
-                    return <Range data={prop} key={prop._id}></Range>
-                })
-            }
+            <ul className="list_range">
+                {
+                    // Get the range's and loop throw all of them then append to the doc 
+                    list_element.map(prop=>{
+                        return <Range data={prop} key={prop._id}></Range>
+                    })
+                }
+            </ul>
         </div>
     )
 }

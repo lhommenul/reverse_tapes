@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route, Link, BrowserRouter } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Boutique from "./views/Boutique";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    < BrowserRouter >
+          <Route path="/" component={Boutique} />
+    </ BrowserRouter >
   </React.StrictMode>,
   document.getElementById('root')
 );

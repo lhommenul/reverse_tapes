@@ -9,13 +9,14 @@ app.use(express.urlencoded({
 
 // ===== CONFIG CORS ======
 let params = ()=>{
-  console.log(process.env.STATE);
   if (process.env.STATE === "dev") {
+    console.log(`========= DEV MODE ==========`);
     return {
       origin: '*',
       optionsSuccessStatus: 200
     }
   } else {
+    console.log(`========= PROD MODE ==========`);
     return {
       origin: 'http://localhost',
       optionsSuccessStatus: 200
@@ -26,8 +27,8 @@ app.use(cors(params()))
 
 const mongoose = require('mongoose');
 // ROOTER
-const rooter = require('./rooter');
-app.use('/',rooter);
+const router = require('./router');
+app.use('/',router);
 
 
 // Connection to the bdd

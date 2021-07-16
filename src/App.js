@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+
 import Boutique from "./views/Boutique";
 
 let App = ()=> {
@@ -9,6 +10,7 @@ let App = ()=> {
         
       </Boutique>
     </div>
+
   );
 }
 
