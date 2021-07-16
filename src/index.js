@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Link, BrowserRouter } from 'react-router-dom'
+import { Route, Link, BrowserRouter,Switch } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Boutique from "./views/Boutique";
+import Product from "./views/Product";
 
 ReactDOM.render(
   <React.StrictMode>
     < BrowserRouter >
-          <Route path="/" component={Boutique} />
+      <Switch>
+          <Route exact path="/" component={Boutique} />
+          <Route path="/product" component={Product} />
+      </Switch>
     </ BrowserRouter >
   </React.StrictMode>,
   document.getElementById('root')

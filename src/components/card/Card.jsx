@@ -10,7 +10,7 @@ const Card = (props) => {
             <div className="pop_info_card">
                 <p className="card_title">{props?.data?.type}</p>
                 <p className="card_description">{props?.data?.description}</p>
-                <button>allez a la page</button>
+                <a href={`/product?id=${props.data._id}`}>allez a la page</a>
             </div>
         </article>
     )

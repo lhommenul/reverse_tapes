@@ -1,25 +1,11 @@
 import React from 'react'
 import { useEffect} from 'react'
-import { Slider } from "../../../../node_modules/@lhommenul/slider/slider";
+import { Slider } from "@lhommenul/slider";
 import "./css/product.css";
 
-let data_cd = {
-    id:3213,
-    name:"Vinyle Album Name",
-    bands:["stuffed foxed","tft"],
-    types:["CD"],
-    img_slider:["https://picsum.photos/200/300","https://picsum.photos/200/300","https://picsum.photos/200/300"],
-    iframe:"url",
-    description:"lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
-    price:20.2,
-    colors:["red"],
-    quantity:40,
-    visible:false, // Boolean
-    disponibility:["23-70-2021","23-70-2021","10:10","12:10"],   
-    size:"M", // t-shirt ...
-}   
 function createCards(props) {
-    const list_img = props.data.img_slider.map((image_src)=>{
+    console.log(props.pictures);
+    let list_img = props.pictures.map((image_src)=>{
         let img = document.createElement('img'); // create an img for each img pass throw the props
         img.src = image_src;
         return img;
@@ -28,7 +14,7 @@ function createCards(props) {
 }
 
 
-const Product = (props) => {
+const ProductImg = (props) => {
     useEffect(() => {
         new Slider({
             per_pages:1,
@@ -47,4 +33,4 @@ const Product = (props) => {
     )
 }
 
-export default Product
+export default ProductImg
